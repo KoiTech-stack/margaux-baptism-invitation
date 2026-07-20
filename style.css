@@ -1,0 +1,777 @@
+/* Google Fonts Import - Consider moving to HTML <link> tags for better performance */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
+/* CSS Variables for Theming */
+:root {
+  --ivory: #faf7f1; /* Background color */
+  --white: #ffffff;
+  --gold: #c9a45c; /* Primary accent color */
+  --dark-gold: #a47c35; /* Darker accent color for hover states */
+  --primary-text-color: #5b5148; /* Main text color */
+  --soft-shadow: rgba(0,0,0,0.08); /* Subtle shadow for depth */
+}
+
+/* Global Reset */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior:smooth;
+}
+
+/* Body Styles */
+body{
+    background:
+        url("images/background.png") top center / cover no-repeat fixed;
+
+    color: var(--primary-text-color);
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.8;
+}
+
+/* OPENING COVER */
+.cover {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100dvh; /* Use dynamic viewport height for better mobile compatibility */
+  background:
+url("images/cover-background.png")
+bottom center / cover
+no-repeat;
+  
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999; /* Use with caution, ensure necessity */
+  transition:1.2s ease;
+}
+
+.cover.hide {
+  opacity:0;
+  pointer-events:none;
+}
+
+.invitation-card {
+  background:white;
+  width:90%;
+  max-width:420px;
+  padding:55px 35px;
+  text-align:center;
+  border-radius:5px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.15);
+  border: 1px solid #ead8b7;
+  animation:fadeUp 1.2s ease;
+}
+
+.gold-cross {
+  color:var(--gold);
+  font-size:45px;
+}
+
+.small-title {
+  letter-spacing:4px;
+  font-size:12px;
+  color:var(--gold);
+  margin:20px 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  color:#80643a;
+  text-shadow: 0 1px 0 rgba(255,255,255,.6);
+}
+
+.invitation-card h1 { font-size:40px; }
+.invitation-card h2 { font-size:28px; }
+.invitation-card h3 { font-size:45px; line-height:1.1; }
+
+.divider{
+
+width:90px;
+height:2px;
+
+margin:30px auto;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+var(--gold),
+transparent
+);
+
+border-radius:20px;
+
+}
+
+button, .gold-button {
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 35px;
+  border-radius:40px;
+  background:var(--gold);
+  color:white;
+  border:none;
+  text-decoration:none;
+  cursor:pointer;
+  font-family:'Montserrat';
+  transition:.3s;
+}
+
+button:hover, .gold-button:hover {
+  background:var(--dark-gold);
+}
+
+/* MAIN CONTENT */
+#mainContent {
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+.hero {
+  text-align:center;
+  padding:70px 20px;
+}
+
+.hero h1 { font-size:60px; line-height:1.1; }
+.hero p { max-width:600px; margin:20px auto; }
+
+/* COUNTDOWN */
+.countdown-section {
+  text-align:center;
+  padding:50px 20px;
+}
+
+.countdown {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.countdown div{
+    background:white;
+    width:110px;
+    min-height:110px;
+    border-radius:12px;
+    box-shadow:0 10px 30px var(--soft-shadow);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.countdown span {
+  display:block;
+  font-size:35px;
+  font-weight:bold;
+  color:var(--gold);
+}
+
+/* INFORMATION CARDS */
+.info-card {
+  background:white;
+  margin:50px 0;
+  padding:50px 35px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow: 0 15px 45px rgba(0,0,0,.06);
+  border:1px solid rgba(201,164,92,.12);
+}
+
+.icon {
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.info-card h2 { font-size:42px; margin-bottom:25px; }
+.label {
+  color:var(--gold);
+  font-weight:bold;
+  margin-top:20px;
+}
+.info-card h3 { font-size:35px; }
+
+.closing {
+  text-align:center;
+  padding:80px 20px;
+}
+.closing h2 { font-size:50px; }
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* =====================================
+   MOBILE STYLES (Consolidated)
+===================================== */
+@media(max-width:600px){
+  /* COVER */
+  .cover {
+    padding:0;
+    width:100vw;
+    height:100dvh;
+  }
+
+  .cover .invitation-card {
+    width:100%;
+    height:100%;
+    max-width:none;
+    border-radius:0;
+    border:none;
+    box-shadow:none;
+    background:transparent;
+    padding:30px 25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .cover .gold-cross { font-size:70px; }
+  .cover .small-title { font-size:14px; letter-spacing:3px; }
+  .cover h1 { font-size:42px; line-height:1.1; }
+  .cover h2 { font-size:30px; }
+  .cover h3 { font-size:52px; line-height:1; }
+  .cover p { font-size:20px; }
+  .cover button {
+    width:90%;
+    max-width:360px;
+    padding:18px;
+    font-size:18px;
+  }
+
+  /* GENERAL MOBILE CONTENT */
+  #mainContent {
+    width:100%;
+    max-width:100%;
+    padding:20px 15px;
+    overflow-x:hidden;
+  }
+
+  .hero, .info-card, .photo-section, .countdown-section, .closing {
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  .hero h1 { font-size:38px; }
+  .closing h2 { font-size:38px; }
+
+  .info-card {
+    margin:30px 0;
+    padding:30px 20px;
+  }
+  .info-card h2 { font-size:36px; }
+
+  .countdown {
+    gap:8px;
+  }
+  .countdown div {
+    width:75px;
+    padding:15px 5px;
+  }
+  .countdown span { font-size:28px; }
+
+  /* GIFT GALLERY */
+  .gift-grid {
+    grid-template-columns:1fr;
+  }
+  .gift-card img {
+    height:260px;
+  }
+
+  /* GIFT INTRO */
+  .gift-intro {
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:40px;
+  }
+
+  /* LOCATION BANNER */
+  .location-image {
+    height:190px;
+  }
+  .location-card h3 {
+    font-size:30px;
+  }
+}
+
+/* ===========================
+   GIFT GALLERY
+=========================== */
+.gift-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.gift-card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+  transition:.35s ease;
+  opacity:0;
+  transform:translateY(40px);
+  position:relative;
+  cursor:pointer;
+}
+
+.gift-card img{
+  width:100%;
+  height:220px;
+  object-fit:contain;
+  background:#fff;
+  padding:20px;
+  transition:.5s;
+}
+
+.gift-card h3{
+  padding:20px;
+  text-align:center;
+  font-size:22px;
+  color:#80643a;
+}
+
+.gift-card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.gift-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:70%;
+  height:100%;
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.45),
+    transparent
+  );
+  transition:.8s;
+}
+
+.gift-card:hover::before{
+  left:150%;
+}
+
+.gift-card:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0,0,0,.15);
+}
+
+.gift-card:active{
+  transform:scale(.98);
+}
+
+.gift-card:hover img{
+  transform:scale(1.05);
+}
+
+.gift-brand{
+  color:#ee4d2d;
+  font-size:15px;
+  font-weight:600;
+  margin:0 20px 20px;
+  text-align:center;
+}
+
+/* =================================
+   GIFT INTRO
+================================= */
+.gift-intro{
+  max-width:650px;
+  margin:25px auto 50px;
+  text-align:center;
+  line-height:1.9;
+  color:#6c6157;
+  font-size:17px;
+}
+
+.gift-icon{
+  font-size:34px;
+  color:var(--gold);
+  text-align:center;
+  margin-bottom:10px;
+}
+
+/* Whole card clickable */
+.gift-link{
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+.gift-link:hover{
+  text-decoration:none;
+}
+
+/* ===========================
+   GOOGLE MAPSBUTTON
+=========================== */
+.maps-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:25px;
+  padding:14px 28px;
+  background:white;
+  color:var(--gold);
+  border:2px solid var(--gold);
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.35s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  width:100%;
+  max-width:320px;
+}
+
+.maps-button:hover{
+  background:var(--gold);
+  color:white;
+  transform:translateY(-3px);
+  box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
+
+.maps-button:active{
+  transform:scale(.98);
+}
+
+/* ===========================
+   LOCATION BANNER
+=========================== */
+.location-card{
+  padding:0;
+  overflow:hidden;
+}
+
+.location-image{
+  width:100%;
+  height:230px;
+  overflow:hidden;
+}
+
+.location-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position: center 50%;
+  display:block;
+  transition:.6s ease;
+}
+
+.location-card:hover .location-image img{
+  transform:scale(1.05);
+}
+
+.location-card .icon{
+  margin-top:35px;
+}
+
+.location-card h2{
+  margin-bottom:20px;
+}
+
+.location-card p,
+.location-card h3,
+.location-card .maps-button{
+  margin-left:30px;
+  margin-right:30px;
+}
+
+.location-card .maps-button{
+  margin-bottom:40px;
+}
+
+.countdown-subtitle{
+  color:#8a7a68;
+  font-size:17px;
+  margin-top:10px;
+  margin-bottom:35px;
+  letter-spacing:.5px;
+}
+
+/* ===========================
+   BABY PHOTO GALLERY
+=========================== */
+
+.baby-gallery{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:400px;
+
+    height:450px;
+
+    margin:0 auto;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+}
+
+
+.baby-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    transition:opacity .8s ease;
+
+}
+
+
+.baby-slide.active{
+
+    opacity:1;
+
+}
+
+
+.baby-slide img{
+
+    width:auto;
+
+    max-width:90%;
+
+    max-height:430px;
+
+    object-fit:contain;
+
+    display:block;
+
+    border-radius:24px;
+
+}
+
+
+
+.gallery-dots{
+
+    text-align:center;
+
+    margin:20px 0 30px;
+
+}
+
+
+.dot{
+
+    display:inline-block;
+
+    width:9px;
+
+    height:9px;
+
+    background:#d8c5a5;
+
+    border-radius:50%;
+
+    margin:0 5px;
+
+    transition:.3s;
+
+}
+
+
+.dot.active{
+
+    background:var(--gold);
+
+    transform:scale(1.3);
+
+}
+
+
+
+@media(max-width:600px){
+
+    .baby-gallery{
+
+        height:380px;
+
+    }
+
+
+    .baby-slide img{
+
+        max-height:360px;
+
+    }
+
+}
+
+/* ===========================
+   MOBILE SWIPE GALLERY
+=========================== */
+
+.baby-gallery {
+
+    touch-action: pan-y;
+
+    cursor:grab;
+
+}
+
+.baby-gallery:active {
+
+    cursor:grabbing;
+
+}
+
+/* ===========================
+   RSVP SECTION
+=========================== */
+
+.rsvp-section{
+
+    text-align:center;
+
+}
+
+
+.rsvp-section h2{
+
+    margin-bottom:20px;
+
+}
+
+
+.rsvp-section p{
+
+    max-width:550px;
+
+    margin:0 auto 15px;
+
+}
+
+
+.rsvp-section h3{
+
+    color:var(--gold);
+
+    margin:15px 0;
+
+}
+
+
+.rsvp-section .gold-button{
+
+    margin-top:30px;
+
+}
+
+/* RSVP SECTION */
+
+.rsvp-note {
+    font-size:16px;
+    color:#8a7a68;
+    max-width:450px;
+    margin:20px auto;
+}
+
+
+.rsvp-section .gold-button {
+    margin-top:25px;
+}
+
+
+/* ===========================
+   SECTION DIVIDER
+=========================== */
+
+.section-divider{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:18px;
+
+    margin:70px auto;
+
+    color:var(--gold);
+
+}
+
+.section-divider::before,
+.section-divider::after{
+
+    content:"";
+
+    width:120px;
+    height:1px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        rgba(201,164,92,.7)
+    );
+
+}
+
+.section-divider::after{
+
+    background:linear-gradient(
+        to left,
+        transparent,
+        rgba(201,164,92,.7)
+    );
+
+}
+
+.section-divider span{
+
+    font-size:22px;
+    letter-spacing:8px;
+
+    opacity:.75;
+
+}
+
+@media(max-width:600px){
+
+    .section-divider{
+
+        margin:50px auto;
+
+    }
+
+    .section-divider::before,
+    .section-divider::after{
+
+        width:70px;
+
+    }
+
+}
